@@ -1,0 +1,13 @@
+## Interface: 11303
+## Version: 0.0.1
+## Title: Bingo
+## Notes: Allows you to play bingo!
+## Author: Cold
+## X-Website: https://github.com/Cold-1/Bingo
+## X-Curse-Project-ID: 
+
+## SavedVariables: BingoCards, BingoSettings
+
+Libs\serpent\serpent.lua
+
+Bingo.lua

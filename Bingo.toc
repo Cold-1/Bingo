@@ -4,7 +4,7 @@
 ## Notes: Allows you to play bingo!
 ## Author: Cold
 ## X-Website: https://github.com/Cold-1/Bingo
-## X-Curse-Project-ID: 
+## X-Curse-Project-ID: 359127
 
 ## SavedVariables: BingoCards, BingoSettings
 

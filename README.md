@@ -2,7 +2,7 @@
 
 A bingo addon for World of Warcraft.
 
-### __[CurseForge](https://www.curseforge.com/)__
+### __[CurseForge](https://www.curseforge.com/wow/addons/bingo)__
 ### __[GitHub](https://github.com/Cold-1/Bingo)__
 
 ## __Features__

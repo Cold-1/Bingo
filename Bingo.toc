@@ -1,4 +1,4 @@
-## Interface: 
+## Interface: 11305
 ## Version: 0.0.2
 ## Title: Bingo
 ## Notes: Allows you to play bingo!

@@ -1,7 +1,13 @@
 local Bingo = {
 	ADDON_NAME = ...,
 	ADDON_NAMESPACE = select(2, ...),
-	BingoButtons = {}
+	BingoButtons = {},
+	DefaultBackdrop = {
+		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background-Dark",
+		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+		edgeSize = 32,
+		insets = { left = 8, right = 8, top = 8, bottom = 8, },
+	}
 }
 
 function Bingo:Init()
@@ -12,6 +18,7 @@ function Bingo:Init()
 	
 	self:CreateFrames()
 	self:CreateButtons()
+	self.BingoFrame:Show()
 end
 
 function Bingo.LoadDefaultSettings()
@@ -194,7 +201,7 @@ end
 
 function Bingo:CreateFrames()
 	-- Create main bingo frame aka the game frame
-	self.BingoFrame = CreateFrame("Frame", "BingoFrame", UIParent)
+	self.BingoFrame = CreateFrame("Frame", "BingoFrame", UIParent, BackdropTemplateMixin and "BackdropTemplate")
 	self.BingoFrame:Hide()
 
 	-- Register events
@@ -214,7 +221,7 @@ function Bingo:CreateFrames()
 	self.BingoFrame:SetHeight(500)
 	self.BingoFrame:ClearAllPoints()
 	self.BingoFrame:SetPoint("CENTER")
-	self.BingoFrame:SetBackdrop(StaticPopup1:GetBackdrop())
+	self.BingoFrame:SetBackdrop(self.DefaultBackdrop)
 	tinsert(UISpecialFrames, self.BingoFrame:GetName())
 	
 	-- Add bingo card title text to main frame
@@ -373,7 +380,7 @@ function Bingo:CreateFrames()
 	end)
 	
 	-- Create the import/export frame
-	self.BingoEditFrame = CreateFrame("Frame", "BingoEditFrame", UIParent)
+	self.BingoEditFrame = CreateFrame("Frame", "BingoEditFrame", UIParent, BackdropTemplateMixin and "BackdropTemplate")
 	self.BingoEditFrame:SetScript("OnDragStart", self.BingoEditFrame.StartMoving)
 	self.BingoEditFrame:SetScript("OnDragStop", self.BingoEditFrame.StopMovingOrSizing)
 	
@@ -387,7 +394,7 @@ function Bingo:CreateFrames()
 	self.BingoEditFrame:SetHeight(400)
 	self.BingoEditFrame:SetResizable(true)
 	self.BingoEditFrame:SetMinResize(250, 250)
-	self.BingoEditFrame:SetBackdrop(StaticPopup1:GetBackdrop())
+	self.BingoEditFrame:SetBackdrop(self.DefaultBackdrop)
 	tinsert(UISpecialFrames, self.BingoEditFrame:GetName())
 	
 	-- Add a scroll frame to the import/export frame
